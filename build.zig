@@ -4,13 +4,23 @@ pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    b.addModule(.{ .name = "requestz", .source_file = .{ .path = "src/main.zig" } });
+    const http_mod = b.dependency("http", .{}).module("http");
+    const net_mod = b.dependency("network", .{}).module("network");
 
-    const http_dep = b.dependency("http", .{});
-    const net_dep = b.dependency("network", .{});
-
-    try b.modules.put("http", http_dep.module("http"));
-    try b.modules.put("network", net_dep.module("network"));
+    b.addModule(.{
+        .name = "requestz",
+        .source_file = .{ .path = "src/main.zig" },
+        .dependencies = &.{
+            .{
+                .name = "http",
+                .module = http_mod,
+            },
+            .{
+                .name = "network",
+                .module = net_mod,
+            },
+        },
+    });
 
     tests(b, target, optimize);
     clean(b);
