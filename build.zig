@@ -7,19 +7,21 @@ pub fn build(b: *std.Build) !void {
     const net_mod = b.dependency("network", .{}).module("network");
     const h11_mod = b.dependency("h11", .{}).module("h11");
 
+    const http_mod = h11_mod.dependencies.get("http").?;
+
     b.addModule(.{
         .name = "requestz",
         .source_file = .{ .path = "src/main.zig" },
-        .dependencies = &.{
-            .{
-                .name = "network",
-                .module = net_mod,
-            },
-            .{
-                .name = "h11",
-                .module = h11_mod,
-            },
-        },
+        .dependencies = &.{ .{
+            .name = "network",
+            .module = net_mod,
+        }, .{
+            .name = "h11",
+            .module = h11_mod,
+        }, .{
+            .name = "http",
+            .module = http_mod,
+        } },
     });
 
     tests(b, target, optimize);
