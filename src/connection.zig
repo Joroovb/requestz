@@ -7,7 +7,7 @@ const Response = @import("response.zig").Response;
 const std = @import("std");
 const StreamingResponse = @import("response.zig").StreamingResponse;
 const tls = @import("iguanaTLS");
-const Uri = @import("http").Uri;
+const Uri = @import("h11").http.Uri;
 
 pub const TcpConnection = Connection(TcpSocket);
 

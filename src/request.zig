@@ -3,8 +3,8 @@ const Header = @import("http").Header;
 const Headers = @import("http").Headers;
 const Method = @import("http").Method;
 const std = @import("std");
-const Uri = @import("http").Uri;
-const Version = @import("http").Version;
+const Uri = @import("h11").http.Uri;
+const Version = @import("h11").http.Version;
 
 const BodyType = enum {
     ContentLength,

@@ -3,10 +3,6 @@
     .version = "0.0.1",
 
     .dependencies = .{
-        .http = .{
-            .url = "https://github.com/Joroovb/http/archive/master.tar.gz",
-            .hash = "12201059957b8b1bbd5da1580ba4c62afd8aa982589b71a6f14d9703426dc4b983b8",
-        },
         .network = .{
             .url = "https://github.com/MasterQ32/zig-network/archive/master.tar.gz",
             .hash = "1220b7cccedbc23a7374661c772db898219da9580071cdda9a13cf679b67df08c190",

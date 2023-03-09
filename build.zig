@@ -4,7 +4,6 @@ pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const http_mod = b.dependency("http", .{}).module("http");
     const net_mod = b.dependency("network", .{}).module("network");
     const h11_mod = b.dependency("h11", .{}).module("h11");
 
@@ -12,10 +11,6 @@ pub fn build(b: *std.Build) !void {
         .name = "requestz",
         .source_file = .{ .path = "src/main.zig" },
         .dependencies = &.{
-            .{
-                .name = "http",
-                .module = http_mod,
-            },
             .{
                 .name = "network",
                 .module = net_mod,
