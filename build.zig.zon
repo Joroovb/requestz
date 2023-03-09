@@ -1,0 +1,11 @@
+.{
+    .name = "requestz",
+    .version = "0.0.1",
+
+    .dependencies = .{
+        .http = .{
+            .url = "https://github.com/Joroovb/http/archive/6283c3fa09b3b49ca5dd6202e0939839e42952e4.tar.gz",
+            .hash = "12201059957b8b1bbd5da1580ba4c62afd8aa982589b71a6f14d9703426dc4b983b8",
+        },
+    }
+}
