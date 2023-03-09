@@ -9,7 +9,7 @@
         },
         .h11 = .{
             .url = "https://github.com/Joroovb/h11/archive/master.tar.gz",
-            .hash = "12206e09d27f89d3737630a9b90783e47a4c6b682aa21ee712a16151c944b7435ea3",
+            .hash = "12200c61641736f8d118cba670782aac9400072f3cfa95717bb660b0d4d88ac17dbc",
         }
     }
 }
