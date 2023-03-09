@@ -9,7 +9,7 @@ const ValueTree = std.json.ValueTree;
 const Connection = @import("connection.zig").Connection;
 
 pub const Response = struct {
-    allocator: *Allocator,
+    allocator: *const Allocator,
     buffer: []const u8,
     status: StatusCode,
     version: Version,

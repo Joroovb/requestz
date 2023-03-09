@@ -8,9 +8,9 @@ const StreamingResponse = @import("response.zig").StreamingResponse;
 const Uri = @import("http").Uri;
 
 pub const Client = struct {
-    allocator: *Allocator,
+    allocator: *const Allocator,
 
-    pub fn init(allocator: *Allocator) !Client {
+    pub fn init(allocator: *const Allocator) !Client {
         try network.init();
         return Client{ .allocator = allocator };
     }
