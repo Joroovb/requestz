@@ -1,25 +1,16 @@
 const std = @import("std");
 
-pub fn build(b: *std.Build) void {
+pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
+
+    b.addModule(.{ .name = "requestz", .source_file = .{ .path = "src/main.zig" } });
 
     const http_dep = b.dependency("http", .{});
     const net_dep = b.dependency("network", .{});
 
-    b.addModule(.{ .name = "requestz", .source_file = .{ .path = "src/main.zig" } });
-
-    const lib = b.addSharedLibrary(.{
-        .name = "requestz",
-        .root_source_file = .{ .path = "src/main.zig" },
-        .target = target,
-        .optimize = optimize,
-    });
-
-    lib.addModule("http", http_dep.module("http"));
-    lib.addModule("network", net_dep.module("network"));
-
-    lib.install();
+    try b.modules.put("http", http_dep.module("http"));
+    try b.modules.put("network", net_dep.module("network"));
 
     tests(b, target, optimize);
     clean(b);
