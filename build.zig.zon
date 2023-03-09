@@ -10,6 +10,10 @@
         .network = .{
             .url = "https://github.com/MasterQ32/zig-network/archive/master.tar.gz",
             .hash = "1220b7cccedbc23a7374661c772db898219da9580071cdda9a13cf679b67df08c190",
+        },
+        .h11 = .{
+            .url = "https://github.com/Joroovb/h11/archive/master.tar.gz",
+            .hash = "12206e09d27f89d3737630a9b90783e47a4c6b682aa21ee712a16151c944b7435ea3",
         }
     }
 }

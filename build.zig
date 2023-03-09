@@ -6,6 +6,7 @@ pub fn build(b: *std.Build) !void {
 
     const http_mod = b.dependency("http", .{}).module("http");
     const net_mod = b.dependency("network", .{}).module("network");
+    const h11_mod = b.dependency("h11", .{}).module("h11");
 
     b.addModule(.{
         .name = "requestz",
@@ -18,6 +19,10 @@ pub fn build(b: *std.Build) !void {
             .{
                 .name = "network",
                 .module = net_mod,
+            },
+            .{
+                .name = "h11",
+                .module = h11_mod,
             },
         },
     });
