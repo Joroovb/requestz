@@ -4,7 +4,22 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
+    const http_dep = b.dependency("http", .{});
+    const net_dep = b.dependency("network", .{});
+
     b.addModule(.{ .name = "requestz", .source_file = .{ .path = "src/main.zig" } });
+
+    const lib = b.addSharedLibrary(.{
+        .name = "requestz",
+        .root_source_file = .{ .path = "src/main.zig" },
+        .target = target,
+        .optimize = optimize,
+    });
+
+    lib.addModule("http", http_dep.module("http"));
+    lib.addModule("network", net_dep.module("network"));
+
+    lib.install();
 
     tests(b, target, optimize);
     clean(b);
