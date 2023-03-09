@@ -4,7 +4,7 @@ const network = @import("network");
 const Response = @import("response.zig").Response;
 const std = @import("std");
 const StreamingResponse = @import("response.zig").StreamingResponse;
-const http = @import("h11").http;
+const http = @import("http");
 const Method = http.Method;
 const Uri = http.Uri;
 

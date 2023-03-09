@@ -1,6 +1,6 @@
 const Allocator = std.mem.Allocator;
 const std = @import("std");
-const http = @import("h11").http;
+const http = @import("http");
 const Header = http.Header;
 const Headers = http.Headers;
 const Method = http.Method;
