@@ -1,12 +1,13 @@
 const Allocator = std.mem.Allocator;
-const h11 = @import("h11");
-const Headers = @import("http").Headers;
-const JsonParser = std.json.Parser;
-const StatusCode = @import("http").StatusCode;
 const std = @import("std");
-const Version = @import("http").Version;
 const ValueTree = std.json.ValueTree;
+const JsonParser = std.json.Parser;
 const Connection = @import("connection.zig").Connection;
+const h11 = @import("h11");
+const http = h11.http;
+const Headers = http.Headers;
+const StatusCode = http.StatusCode;
+const Version = http.Version;
 
 pub const Response = struct {
     allocator: *const Allocator,

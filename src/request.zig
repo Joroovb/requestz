@@ -1,10 +1,11 @@
 const Allocator = std.mem.Allocator;
-const Header = @import("http").Header;
-const Headers = @import("http").Headers;
-const Method = @import("http").Method;
 const std = @import("std");
-const Uri = @import("h11").http.Uri;
-const Version = @import("h11").http.Version;
+const http = @import("h11").http;
+const Header = http.Header;
+const Headers = http.Headers;
+const Method = http.Method;
+const Uri = http.Uri;
+const Version = http.Version;
 
 const BodyType = enum {
     ContentLength,

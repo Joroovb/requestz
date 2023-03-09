@@ -1,13 +1,14 @@
 const Allocator = std.mem.Allocator;
 const h11 = @import("h11");
-const Method = @import("http").Method;
 const TcpSocket = @import("socket.zig").TcpSocket;
 const Request = @import("request.zig").Request;
 const Response = @import("response.zig").Response;
 const std = @import("std");
 const StreamingResponse = @import("response.zig").StreamingResponse;
 const tls = @import("iguanaTLS");
-const Uri = @import("h11").http.Uri;
+const http = h11.http;
+const Method = http.Method;
+const Uri = http.Uri;
 
 pub const TcpConnection = Connection(TcpSocket);
 

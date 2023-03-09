@@ -1,11 +1,12 @@
 const Allocator = std.mem.Allocator;
 const TcpConnection = @import("connection.zig").TcpConnection;
-const Method = @import("http").Method;
 const network = @import("network");
 const Response = @import("response.zig").Response;
 const std = @import("std");
 const StreamingResponse = @import("response.zig").StreamingResponse;
-const Uri = @import("http").Uri;
+const http = @import("h11").http;
+const Method = http.Method;
+const Uri = http.Uri;
 
 pub const Client = struct {
     allocator: *const Allocator,

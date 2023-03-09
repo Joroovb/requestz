@@ -4,7 +4,7 @@ const LinearFifo = std.fifo.LinearFifo;
 const network = @import("network");
 const std = @import("std");
 const tls = @import("iguanaTLS");
-const Uri = @import("http").Uri;
+const Uri = @import("h11").http.Uri;
 
 pub const TcpSocket = SocketWrapper(ZigNetwork);
 pub const SocketMock = SocketWrapper(NetworkMock);
